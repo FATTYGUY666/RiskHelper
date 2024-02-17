@@ -1,28 +1,29 @@
 import math
+from dataclasses import dataclass
 class person:
-    def __init__(self,name, gpa, social, greekBill, riskCount, lastRisk, isEiligible, attendence, moneyOwed, isPlege, isBrother, isExec, isSenior, isFormerExec, programing, shitList, years):
-        self.name = name
-        self.gpa = gpa
-        self.social = social
-        self.greekBill = greekBill
-        self.riskCount = riskCount
-        self.lastRisk = lastRisk
-        self.isEiligible = True
-        self.attendence = attendence
-        self.moneyOwed = moneyOwed
-        self.isPlege = isPlege
-        self.isBrother = isBrother
-        self.isExec = isExec
-        self.programing = programing
-        self.shitList = shitList
-        self.years = years
+    
+        name: str = None
+        gpa: float = 0
+        social: str = None
+        greekBill: bool = None 
+        riskCount: int = None
+        lastRisk: int = None
+        isEiligible: bool = True
+        attendence: float = None
+        moneyOwed: float = None
+        isPlege: bool = None
+        isBrother: bool = None
+        isExec: bool = None
+        shitList: bool = None
+        years: int = None
+        isFormerExec: bool = None
 
-    def riskEligibility(self):
+def riskEligibility(self):
         
-         if  self.isFormerExec == False:
-             self.isEiligible = False
-         if  self.years == 4:
-             self.isEiligible = False
+    if  person.isFormerExec == False:
+        person.isEiligible = False
+    if  person.years == 4:
+        person.isEiligible = False
 
             
 
