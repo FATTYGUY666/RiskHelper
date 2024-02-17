@@ -1,6 +1,6 @@
 import math
 class person:
-    def __init__(self,name, gpa, social, greekBill, riskCount, lastRisk, attendence, moneyOwed, isPlege, isBrother, isExec, isSenior, isFormerExec):
+    def __init__(self,name, gpa, social, greekBill, riskCount, lastRisk, isEiligible, attendence, moneyOwed, isPlege, isBrother, isExec, isSenior, isFormerExec):
         self.name = name
         self.gpa = gpa
         self.social = social
@@ -13,15 +13,15 @@ class person:
         self.isPlege = isPlege
         self.isBrother = isBrother
         self.isExec = isExec
+        self.programing = programing
+        self.shitList = shitList
 
     def riskEligibility(self):
         
          if  self.isFormerExec == False:
              self.isEiligible = False
-
-         if  self.isExec == False:
-             self.isEiligible == True
-        
+         else:
+             if self.social == False or self.greekBill == False:
             
 
              
