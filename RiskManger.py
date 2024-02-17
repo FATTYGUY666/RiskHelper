@@ -24,7 +24,7 @@ def riskEligibility(self):
         person.isEiligible = False
     if  person.years == 4:
         person.isEiligible = False
-    if  person.lastRisk <= 6:
+    if  person.lastRisk >= 6:
         person.isEiligible = True
     if  person.lastRisk < 6:
         person.isEiligible = False    
