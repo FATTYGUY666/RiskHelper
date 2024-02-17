@@ -34,6 +34,12 @@ def shitList(self):
           person.shitList = True
      if person.gpa < 2.9:
           person.shitList = True
+     if person.isEiligible == False:
+          person.shitList = False
+
+def notShitList(self):
+     if person.gpa >=2.9 & person.moneyOwed == False:
+          person.shitList = False
             
 
              
