@@ -17,10 +17,11 @@ class person:
         shitList: bool = False
         years: int = None
         isFormerExec: bool = None
+        
 
 def riskEligibility(self):
         
-    if  person.isFormerExec == False:
+    if  person.isFormerExec == True:
         person.isEiligible = False
     if  person.years == 4:
         person.isEiligible = False
@@ -30,16 +31,16 @@ def riskEligibility(self):
         person.isEiligible = False    
 
 def shitList(self):
+     if person.isEiligible == False:
+          person.shitList = False
      if person.moneyOwed == True:
           person.shitList = True
      if person.gpa < 2.9:
           person.shitList = True
-     if person.isEiligible == False:
-          person.shitList = False
+     else
+        person.shitList = False
 
-def notShitList(self):
-     if person.gpa >=2.9 & person.moneyOwed == False:
-          person.shitList = False
+wubalubadubdub
             
 
              
