@@ -66,8 +66,8 @@ def riskSelector(list, party):
         if x.isEiligible == True and x.onShitList == True:
             riskList.append(x)
      for x in list:
-          if x.shitList == True and check_list(list, x) != True:
-              list.append(x)
+          if x.onShitList == True and check_list(list, x) != True:
+              shitListList.append(x)
      for x in range(party):
         riskNumber = input("How many people do you want from the Exec List")
         print(random.sample(execList, riskNumber))
