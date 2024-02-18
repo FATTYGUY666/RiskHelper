@@ -78,8 +78,42 @@ def riskSelector(list, party):
 
 
 
-    
-    
+def test_risk_eligibility():
+    p1 = person(name="Alice", isFormerExec=True, years=2, lastRisk=7)
+    p2 = person(name="Bob", isFormerExec=False, years=3, lastRisk=5)
+    riskEligibility(p1)
+    riskEligibility(p2)
+    assert p1.isEiligible == False
+    assert p2.isEiligible == True
+
+def test_shit_list():
+    p1 = person(name="Alice", isEiligible=True, moneyOwed=True, gpa=3.0)
+    p2 = person(name="Bob", isEiligible=False, moneyOwed=False, gpa=2.8)
+    shitList(p1)
+    shitList(p2)
+    assert p1.onShitList == True
+    assert p2.onShitList == False
+
+def test_check_list():
+    lst = [1, 2, 3, 4, 5]
+    assert check_list(lst, 3) == True
+    assert check_list(lst, 6) == False
+
+# Note: You may want to modify the test_risk_selector function as per your requirements.
+def test_risk_selector():
+    p1 = person(name="Alice", isExec=True, isEiligible=True, onShitList=False)
+    p2 = person(name="Bob", isExec=False, isEiligible=True, onShitList=True)
+    people = [p1, p2]
+    riskSelector(people, 2)  # Adjust the party size according to the number of people available
+
+if __name__ == "__main__":
+    test_risk_eligibility()
+    test_shit_list()
+    test_check_list()
+    test_risk_selector()
+    print("All tests passed!")
+
+ 
         
     
      
