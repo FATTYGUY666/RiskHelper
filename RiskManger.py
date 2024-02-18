@@ -1,6 +1,7 @@
 import math
 from dataclasses import dataclass
 import random 
+@dataclass
 class person:
     
         name: str = None
@@ -35,7 +36,7 @@ def shitList(person):
      if person.isEiligible == False:
           person.onShitList = False
      if person.moneyOwed == True:
-          person.shitList = True
+          person.onShitList = True
      if person.gpa < 2.9:
           person.onShitList = True
      else:
@@ -60,7 +61,7 @@ def riskSelector(list, party):
 
      for x in list:
          if x.isExec == True:
-             execList.append(x);
+             execList.append(x)
      for x in list:
         if x.isEiligible == True and x.onShitList == True:
             riskList.append(x)
