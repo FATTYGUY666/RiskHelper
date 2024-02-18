@@ -45,15 +45,44 @@ def check_list(lst, value):
     return value in lst
   
 def riskSelector(lst, party):
-    execList = [x for x in lst if x.isExec]
-    riskList = [x for x in lst if x.isEligible and x.onShitList]
-    shitListList = [x for x in lst if x.onShitList and not check_list(riskList, x)]
+    execList = [x.name for x in lst if x.isExec]
+    riskList = [x.name for x in lst if x.isEligible and x.onShitList]
+    shitListList = [x.name for x in lst if x.onShitList and x.name not in riskList]
     for _ in range(party):
-        riskNumber = int(input("How many people do you want from the Exec List"))
+        while True:
+            try:
+                riskNumber = int(input("How many people do you want from the Exec List: "))
+                if 0 <= riskNumber <= len(execList):
+                    break
+                else:
+                    print("Invalid input. Please enter a number between 0 and", len(execList))
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
+
         print(random.sample(execList, riskNumber))
-        riskNumber = int(input("How many people do you want from the Risk List"))
+
+        while True:
+            try:
+                riskNumber = int(input("How many people do you want from the Risk List: "))
+                if 0 <= riskNumber <= len(riskList):
+                    break
+                else:
+                    print("Invalid input. Please enter a number between 0 and", len(riskList))
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
+
         print(random.sample(riskList, riskNumber))
-        riskNumber = int(input("How many people do you want from the Shit List"))
+
+        while True:
+            try:
+                riskNumber = int(input("How many people do you want from the Shit List: "))
+                if 0 <= riskNumber <= len(shitListList):
+                    break
+                else:
+                    print("Invalid input. Please enter a number between 0 and", len(shitListList))
+            except ValueError:
+                print("Invalid input. Please enter a valid integer.")
+
         print(random.sample(shitListList, riskNumber))
 
 
@@ -75,7 +104,15 @@ def test_check_list():
 def test_risk_selector():
     p1 = person(name="Alice", isExec=True, isEligible=True, onShitList=False)
     p2 = person(name="Bob", isExec=False, isEligible=True, onShitList=True)
-    people = [p1, p2]
+    p3 = person(name="Alic", isExec=True, isEligible=True, onShitList=False)
+    p4 = person(name="Bo", isExec=False, isEligible=True, onShitList=True)
+    p5 = person(name="Ali", isExec=True, isEligible=True, onShitList=False)
+    p6 = person(name="B", isExec=False, isEligible=True, onShitList=True)
+    p7 = person(name="Al", isExec=True, isEligible=True, onShitList=False)
+    p8 = person(name=" ", isExec=False, isEligible=True, onShitList=True)
+    p9 = person(name="A", isExec=True, isEligible=True, onShitList=False)
+    p10 = person(name="Bobbob", isExec=False, isEligible=True, onShitList=True)
+    people = [p1, p2,p3,p4,p5,p6,p7,p8,p9,p10]
     riskSelector(people, 2)
 
 if __name__ == "__main__":
