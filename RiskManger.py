@@ -1,5 +1,6 @@
 import math
 from dataclasses import dataclass
+import random 
 class person:
     
         name: str = None
@@ -14,12 +15,12 @@ class person:
         isPlege: bool = None
         isBrother: bool = None
         isExec: bool = None
-        shitList: bool = False
+        onShitList: bool = False
         years: int = None
         isFormerExec: bool = None
         
 
-def riskEligibility(self):
+def riskEligibility(person):
         
     if  person.isFormerExec == True:
         person.isEiligible = False
@@ -30,19 +31,58 @@ def riskEligibility(self):
     if  person.lastRisk < 6:
         person.isEiligible = False    
 
-def shitList(self):
+def shitList(person):
      if person.isEiligible == False:
-          person.shitList = False
+          person.onShitList = False
      if person.moneyOwed == True:
           person.shitList = True
      if person.gpa < 2.9:
-          person.shitList = True
-     else
-        person.shitList = False
+          person.onShitList = True
+     else:
+        person.onShitList = False
 
-wubalubadubdub
-    shit        
+def check_list(list, value):
 
+  if value in list:
+
+    return True
+
+  else:
+
+    return False
+  
+def riskSelector(list, party):
+     execList = []
+     riskList = []
+     shitListList = []
+     riskNumber = 0
+     
+
+     for x in list:
+         if x.isExec == True:
+             execList.append(x);
+     for x in list:
+        if x.isEiligible == True and x.onShitList == True:
+            riskList.append(x)
+     for x in list:
+          if x.shitList == True and check_list(list, x) != True:
+              list.append(x)
+     for x in range(party):
+        riskNumber = input("How many people do you want from the Exec List")
+        print(random.sample(execList, riskNumber))
+        riskNumber = input("How many people do you want from the Risk List")
+        print(random.sample(riskList, riskNumber))
+        riskNumber = input("How many people do you want from the Shit List")
+        print(random.sample(shitListList, riskNumber))
+    
+
+
+
+    
+    
+        
+    
+     
              
              
              
